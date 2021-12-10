@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator myAnimator;
 
 	public GameManager theGameManager;
+	public AudioSource audioJump;
 
 	// Use this for initialization
 	void Start () {
@@ -91,6 +92,7 @@ public class PlayerController : MonoBehaviour {
 		
 			jumpTimeCounter = 0;
 			myAnimator.SetBool("lompat", true);
+			audioJump.Play();
 		
 		}
 
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour {
 		
 			jumpTimeCounter = jumpTime;
 			myAnimator.SetBool("lompat", false);
+			audioJump.Stop();
 		
 		}
 
