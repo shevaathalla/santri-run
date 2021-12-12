@@ -31,7 +31,8 @@ public class GroundGenerator : MonoBehaviour {
 	private EnemyGenerator theEnemyGenerator;
 	public float randomEnemyThresshold;
 
-
+	private QuranGenerator theQuranGenerator;
+	public float randomQuranThresshold;
 	// Use this for initialization
 	void Start () {
 		//groundWidth = theGround.GetComponent<BoxCollider2D> ().size.x;	
@@ -49,6 +50,7 @@ public class GroundGenerator : MonoBehaviour {
 
 		theCoinGenerataor = FindObjectOfType<CoinGenerator>();
 		theEnemyGenerator = FindObjectOfType<EnemyGenerator>();
+		theQuranGenerator = FindObjectOfType<QuranGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -93,6 +95,12 @@ public class GroundGenerator : MonoBehaviour {
 			{
 				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
 			}
+			if (Random.Range(0f, 100f) < randomQuranThresshold)
+			{
+				theQuranGenerator.SpawnQuran(new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z));
+			}
+
+
 			transform.position = new Vector3 (transform.position.x + (groundWidths[groundSelector] / 2), transform.position.y, transform.position.z);
 
 			
