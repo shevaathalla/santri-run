@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour {
 
 	public Text scoreText;
-	public Text highScoreText, pointTasbihText;
+	public Text highScoreText, pointTasbihText, quranText;
 
-	public float scoreCount, poinCount;
+	public float scoreCount, poinCount, quranCount;
 	public float highScoreCount;
 
 	public float pointsPerSecond;
@@ -23,6 +23,10 @@ public class ScoreManager : MonoBehaviour {
         }
 		if(PlayerPrefs.GetFloat("Poin") != 0 ){
             poinCount = PlayerPrefs.GetFloat("Poin");
+        }
+		if(PlayerPrefs.GetFloat("QuranLife") != 0)
+        {
+			quranCount = PlayerPrefs.GetFloat("QuranLife");
         }
 	}
 	
@@ -40,6 +44,7 @@ public class ScoreManager : MonoBehaviour {
 
 		
 		pointTasbihText.text = "" + Mathf.Round(poinCount);
+		quranText.text = "" + Mathf.Round(quranCount);
 
         scoreText.text = "" + Mathf.Round(scoreCount);
 		PlayerPrefs.SetFloat("Score", scoreCount);
@@ -51,10 +56,10 @@ public class ScoreManager : MonoBehaviour {
         poinCount += pointsToAdd;
         PlayerPrefs.SetFloat("Poin", poinCount);
     }
-
-	public float getScore()
-    {
-		scoreCount = PlayerPrefs.GetFloat("Score");
-		return scoreCount;
+	public void AddQuranLife(int pointsToAdd)
+	{
+		quranCount += pointsToAdd;
+		PlayerPrefs.SetFloat("QuranLife", quranCount);
 	}
+
 }
