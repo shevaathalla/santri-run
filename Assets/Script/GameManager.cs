@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,6 +14,10 @@ public class GameManager : MonoBehaviour {
 	private GroundDestroyer[] groundList;
 
 	private ScoreManager theScoreManager;
+
+	public GameObject gameOverMenu;
+
+	public string namaScene;
 
 	// Use this for initialization
 	void Start () {
@@ -28,26 +33,54 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void RestartGame(){
+		theScoreManager.scoreIncreasing = false;
+		thePlayer.gameObject.SetActive(false);
+		//StartCoroutine ("RestartGameCo");
 
-		StartCoroutine ("RestartGameCo");
+		gameOverMenu.SetActive(true);
+
+		//Scene sceneIni = SceneManager.GetActiveScene();
+
+		//if (sceneIni.name != namaScene)
+		//{
+		//	SceneManager.LoadScene(namaScene);
+		//}
 	}
 
-	public IEnumerator RestartGameCo(){
-	
-		theScoreManager.scoreIncreasing = false;
-		thePlayer.gameObject.SetActive (false);
-		yield return new WaitForSeconds (0.5f);
-		groundList = FindObjectsOfType<GroundDestroyer> ();
-		for(int i = 0; i < groundList.Length; i++){
+    public void Reset()
+    {
+		groundList = FindObjectsOfType<GroundDestroyer>();
+		for (int i = 0; i < groundList.Length; i++)
+		{
 
 			groundList[i].gameObject.SetActive(false);
 		}
 
 		thePlayer.transform.position = playerStartPoint;
 		groundGenerator.position = groundStartPoint;
-		thePlayer.gameObject.SetActive (true);
+		thePlayer.gameObject.SetActive(true);
 
 		theScoreManager.scoreCount = 0;
 		theScoreManager.scoreIncreasing = true;
+		gameOverMenu.SetActive(false);
 	}
+
+ //   public IEnumerator RestartGameCo(){
+	
+	//	theScoreManager.scoreIncreasing = false;
+	//	thePlayer.gameObject.SetActive (false);
+	//	yield return new WaitForSeconds (0.5f);
+	//	groundList = FindObjectsOfType<GroundDestroyer> ();
+	//	for(int i = 0; i < groundList.Length; i++){
+
+	//		groundList[i].gameObject.SetActive(false);
+	//	}
+
+	//	thePlayer.transform.position = playerStartPoint;
+	//	groundGenerator.position = groundStartPoint;
+	//	thePlayer.gameObject.SetActive (true);
+
+	//	theScoreManager.scoreCount = 0;
+	//	theScoreManager.scoreIncreasing = true;
+	//}
 }

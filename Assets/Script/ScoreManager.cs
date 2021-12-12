@@ -38,17 +38,23 @@ public class ScoreManager : MonoBehaviour {
 			PlayerPrefs.SetFloat ("HighScore", highScoreCount);
 		}
 
-		scoreText.text = "Score : " + Mathf.Round (scoreCount);
-		highScoreText.text = "High Score : " + Mathf.Round (highScoreCount);
 		
 		pointTasbihText.text = "" + Mathf.Round(poinCount);
 
         scoreText.text = "" + Mathf.Round(scoreCount);
-        highScoreText.text = "High Score : " + Mathf.Round(highScoreCount);
+		PlayerPrefs.SetFloat("Score", scoreCount);
+
+		highScoreText.text = "High Score : " + Mathf.Round(highScoreCount);
 	}
 
 	public void AddScore (int pointsToAdd){
         poinCount += pointsToAdd;
         PlayerPrefs.SetFloat("Poin", poinCount);
     }
+
+	public float getScore()
+    {
+		scoreCount = PlayerPrefs.GetFloat("Score");
+		return scoreCount;
+	}
 }

@@ -27,7 +27,10 @@ public class GroundGenerator : MonoBehaviour {
 
 	private CoinGenerator theCoinGenerataor;
 	public float randomCoinThresshold;
-	
+
+	private EnemyGenerator theEnemyGenerator;
+	public float randomEnemyThresshold;
+
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +47,8 @@ public class GroundGenerator : MonoBehaviour {
 		minHeight = transform.position.y;
 		maxHeight = maxHeightPoint.position.y;
 
-		theCoinGenerataor = FindObjectOfType<CoinGenerator>();	
+		theCoinGenerataor = FindObjectOfType<CoinGenerator>();
+		theEnemyGenerator = FindObjectOfType<EnemyGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -82,9 +86,17 @@ public class GroundGenerator : MonoBehaviour {
 
 
 			if(Random.Range(0f,100f)<randomCoinThresshold){
-			theCoinGenerataor.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z ));
+				theCoinGenerataor.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z ));
+			}
+
+			if (Random.Range(0f, 100f) < randomEnemyThresshold)
+			{
+				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
 			}
 			transform.position = new Vector3 (transform.position.x + (groundWidths[groundSelector] / 2), transform.position.y, transform.position.z);
+
+			
+			
 		}
 
 	}
