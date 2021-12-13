@@ -16,7 +16,8 @@ public class SwitchToggle : MonoBehaviour
     Toggle toggle;
     Vector2 handlePosition;
 
-    void Awake()
+    
+    void Start()
     {
         toggle = GetComponent<Toggle>();
         handlePosition = uiHandleRectTransform.anchoredPosition;
@@ -30,25 +31,38 @@ public class SwitchToggle : MonoBehaviour
 
         if (toggle.isOn)
         {
-            OnSwitch(true);
+            if(MusicManager.Instance.backsound.mute == false)
+            {
+                OnSwitch(true);
+            }
+            else
+            {
+                OnSwitch(false);
+            }
+            
         }
     }
 
-    private void OnSwitch(bool on)
+
+    public void OnSwitch(bool off)
     {
-        uiHandleRectTransform.anchoredPosition = on ? handlePosition * -1 : handlePosition;
-        backgroundImage.sprite = on ? backgroundActiveSprite : backgroundDefaultSprite;
-        handleImage.sprite = on ? handleActiveSprite : handleDefaultSprite;
+        if (off)
+        {
+            uiHandleRectTransform.anchoredPosition = handlePosition;
+        }
+        else
+        {
+            uiHandleRectTransform.anchoredPosition = handlePosition * -1;
+
+        }
+        backgroundImage.sprite = off ? backgroundDefaultSprite : backgroundActiveSprite ;
+        handleImage.sprite = off ? handleDefaultSprite : handleActiveSprite ;
+        MusicManager.Instance.ButtonMusicMute();
     }
 
     private void OnDestroy()
     {
         toggle.onValueChanged.RemoveListener(OnSwitch);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

@@ -26,10 +26,6 @@ public class ScoreManager : MonoBehaviour {
 		if(PlayerPrefs.GetFloat("Poin") != 0 ){
             poinCount = PlayerPrefs.GetFloat("Poin");
         }
-		if(PlayerPrefs.GetFloat("QuranLife") != 0)
-        {
-			quranCount = PlayerPrefs.GetFloat("QuranLife");
-        }
 	}
 	
 	// Update is called once per frame

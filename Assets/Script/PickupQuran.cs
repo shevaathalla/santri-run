@@ -20,7 +20,7 @@ public class PickupQuran : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.name == "Pemain"){
-            theScoreManager.AddQuranLife(Quranpoint);
+            theScoreManager.AddScore(Quranpoint);
             gameObject.SetActive(false);
         }
     }

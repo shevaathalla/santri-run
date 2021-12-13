@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
 
 	public string namaScene;
 
+	public AudioSource backsound;
+	public GameObject sound;
+
+
 	// Use this for initialization
 	void Start () {
 		groundStartPoint = groundGenerator.position;
@@ -26,7 +30,18 @@ public class GameManager : MonoBehaviour {
 
 		theScoreManager = FindObjectOfType<ScoreManager> ();
 	}
+
+	public void BackSoundOn()
+    {
+		sound.SetActive(true);
+		backsound.Play();
+    }
 	
+	public void BackSoundOff()
+    {
+		sound.SetActive(false);
+		backsound.Stop();
+    }
 	// Update is called once per frame
 	void Update () {
 		

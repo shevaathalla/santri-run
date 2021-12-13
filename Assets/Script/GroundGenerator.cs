@@ -88,16 +88,16 @@ public class GroundGenerator : MonoBehaviour {
 
 
 			if(Random.Range(0f,100f)<randomCoinThresshold){
-				theCoinGenerataor.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z ));
+				theCoinGenerataor.SpawnCoins(new Vector3(transform.position.x, transform.position.y + Random.Range(2f,3f), transform.position.z ));
 			}
 
 			if (Random.Range(0f, 100f) < randomEnemyThresshold)
 			{
-				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x+Random.Range(2f,3f), transform.position.y + 1f, transform.position.z));
 			}
 			if (Random.Range(0f, 100f) < randomQuranThresshold)
 			{
-				theQuranGenerator.SpawnQuran(new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z));
+				theQuranGenerator.SpawnQuran(new Vector3(transform.position.x, transform.position.y + Random.Range(3f,4f), transform.position.z));
 			}
 
 
