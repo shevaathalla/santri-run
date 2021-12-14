@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3217638541234264237}
   - component: {fileID: 2617621516682303431}
   - component: {fileID: 1899933368699552999}
+  - component: {fileID: -8736757412689268327}
   m_Layer: 0
   m_Name: Setan
   m_TagString: killbox
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.04, y: 6.39}
+  m_Size: {x: 2, y: 6.39}
   m_EdgeRadius: 0
 --- !u!114 &1899933368699552999
 MonoBehaviour:
@@ -123,3 +124,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDestructionPoint: {fileID: 0}
+--- !u!95 &-8736757412689268327
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995861936918519222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f698fab1f4e000949ab5bc2a7353d8ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

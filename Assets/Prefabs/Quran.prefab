@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doublePoints: 1
   powerupLength: 1
+  pickUpSound: {fileID: 8300000, guid: d739c83281d263247bbccdb1619a84aa, type: 3}

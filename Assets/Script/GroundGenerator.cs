@@ -93,7 +93,7 @@ public class GroundGenerator : MonoBehaviour {
 
 			if (Random.Range(0f, 100f) < randomEnemyThresshold)
 			{
-				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x+Random.Range(2f,3f), transform.position.y + 1f, transform.position.z));
+				theEnemyGenerator.SpawnEnemy(new Vector3(transform.position.x+Random.Range(0.5f,1.5f), transform.position.y + 1f, transform.position.z));
 			}
 			if (Random.Range(0f, 100f) < randomQuranThresshold)
 			{

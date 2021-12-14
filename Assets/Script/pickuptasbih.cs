@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class pickuptasbih : MonoBehaviour
 {
+    public AudioClip pickUpSound;
     // Start is called before the first frame update
     public int scoreToGive;
-    private ScoreManager theScoreManager;   
+    private ScoreManager theScoreManager;
     void Start()
     {
         theScoreManager = FindObjectOfType<ScoreManager>();
@@ -22,6 +23,8 @@ public class pickuptasbih : MonoBehaviour
         if(other.gameObject.name == "Pemain"){
             theScoreManager.AddScore(scoreToGive);
             gameObject.SetActive(false);
+            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
+            
         }
     }
 }

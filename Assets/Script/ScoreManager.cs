@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour {
 	public bool scoreIncreasing;
 
 	public bool shouldDouble;
+	public AudioSource pickUpTasbihSound;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +34,7 @@ public class ScoreManager : MonoBehaviour {
 
 		if (scoreIncreasing) {
 			scoreCount += pointsPerSecond * Time.deltaTime;
+			pickUpTasbihSound.Play();
 		} 
 		if (scoreCount > highScoreCount) {
 		
@@ -40,7 +42,7 @@ public class ScoreManager : MonoBehaviour {
 			PlayerPrefs.SetFloat ("HighScore", highScoreCount);
 		}
 
-		
+		pickUpTasbihSound.Stop();
 		pointTasbihText.text = "" + Mathf.Round(poinCount);
 		quranText.text = "" + Mathf.Round(quranCount);
 
@@ -56,6 +58,7 @@ public class ScoreManager : MonoBehaviour {
 		}
         poinCount += pointsToAdd;
         PlayerPrefs.SetFloat("Poin", poinCount);
+		
     }
 	public void AddQuranLife(int pointsToAdd)
 	{

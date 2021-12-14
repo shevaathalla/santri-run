@@ -9,6 +9,7 @@ public class powerups : MonoBehaviour
     // public bool safeMode;
 
     public float powerupLength;
+    public AudioClip pickUpSound;
     
     private powerupManager thePowerUpManager;
     void Start()
@@ -27,6 +28,7 @@ public class powerups : MonoBehaviour
      void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.name == "Pemain"){
             thePowerUpManager.ActivePowerup(doublePoints, powerupLength);
+            AudioSource.PlayClipAtPoint(pickUpSound, transform.position);
             gameObject.SetActive(false);
         }
     }
