@@ -8,6 +8,7 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance { get; set; }
 
     public AudioSource backsound;
+    public AudioSource gameOverSound;
     // Start is called before the first frame update
 
     private void Awake()
@@ -26,7 +27,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,6 +39,18 @@ public class MusicManager : MonoBehaviour
     public void ButtonInGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void GameOver()
+    {
+        if (gameOverSound.mute == false)
+        {
+            gameOverSound.mute = true;
+        }
+        else
+        {
+            gameOverSound.mute = false;
+        }
     }
 
     public void ButtonMusicMute()

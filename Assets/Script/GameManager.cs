@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour {
 
 	public string namaScene;
 
-	public AudioSource backsound;
-	public GameObject sound;
 
 
 	// Use this for initialization
@@ -31,17 +29,6 @@ public class GameManager : MonoBehaviour {
 		theScoreManager = FindObjectOfType<ScoreManager> ();
 	}
 
-	public void BackSoundOn()
-    {
-		sound.SetActive(true);
-		backsound.Play();
-    }
-	
-	public void BackSoundOff()
-    {
-		sound.SetActive(false);
-		backsound.Stop();
-    }
 	// Update is called once per frame
 	void Update () {
 		
@@ -53,7 +40,8 @@ public class GameManager : MonoBehaviour {
 		//StartCoroutine ("RestartGameCo");
 
 		gameOverMenu.SetActive(true);
-
+		MusicManager.Instance.gameOverSound.Play();
+		MusicManager.Instance.backsound.Stop();
 		//Scene sceneIni = SceneManager.GetActiveScene();
 
 		//if (sceneIni.name != namaScene)
@@ -78,6 +66,8 @@ public class GameManager : MonoBehaviour {
 		theScoreManager.scoreCount = 0;
 		theScoreManager.scoreIncreasing = true;
 		gameOverMenu.SetActive(false);
+		MusicManager.Instance.gameOverSound.Stop();
+		MusicManager.Instance.backsound.Play();
 	}
 
  //   public IEnumerator RestartGameCo(){

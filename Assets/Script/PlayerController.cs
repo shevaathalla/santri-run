@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		myAnimator.SetFloat ("Speed", myRigidBody.velocity.x);
-		myAnimator.SetBool ("Grounded", grounded);
+		//myAnimator.SetBool ("Grounded", grounded);
 	}
 
 	void OnCollisionEnter2D (Collision2D other){
